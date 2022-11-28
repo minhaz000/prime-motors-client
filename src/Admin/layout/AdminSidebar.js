@@ -9,7 +9,6 @@ function AdminSidebar(props) {
           <label htmlFor="mobileMenu" className="drawer-overlay"></label>
           <ul className="menu p-7 w-80 bg-gray-100  text-base-content">
          
-             
                 <li> <Link to='/dashboard'>Home</Link></li>
                 <li> <Link to='/dashboard/add-product'>Add Product </Link></li>
                 <li> <Link to='/dashboard/manage-product'>Manage Product </Link></li>
