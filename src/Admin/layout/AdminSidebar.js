@@ -5,7 +5,6 @@ function AdminSidebar(props) {
   const {userRole} = useContext(RootContext)
   return (
     <> 
-
 <div className="drawer-side">
           <label htmlFor="mobileMenu" className="drawer-overlay"></label>
           <ul className="menu p-7 w-80 bg-gray-100  text-base-content">
