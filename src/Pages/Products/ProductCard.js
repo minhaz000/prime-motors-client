@@ -41,8 +41,7 @@ function ProductCard({Data,setProductDetails}) {
           {location.pathname==='/'? <Link to={`/category/${Data.category}`} className="btn btn-primary" > Explore  </Link> :   
             Data.booked===true? <button className="btn btn-primary" disabled> Booked  </button> : 
           <label onClick={()=>setProductDetails(Data)} htmlFor="booking-modal" className="btn btn-primary">BOOK</label>
-
-            } 
+          } 
           </div>
         </div>
       </div>
