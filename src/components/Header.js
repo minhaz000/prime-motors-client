@@ -45,13 +45,13 @@ function Header(props) {
               <Link to="/"> Home </Link>
             </li>
             <li>
-              <Link to="/cars"> Cars </Link>
+              <Link to="/booking"> My bookings </Link>
             </li>
             <li>
               <Link to="/blog"> Blog </Link>
             </li>
              <li>
-              <Link to="/admin"> Admin </Link>
+              <Link to="/dashboard"> DashBoard </Link>
             </li>
           </ul>
         </div>

@@ -8,6 +8,7 @@ function Context(props) {
   const HOST = 'http://localhost:5000'
   const [categories,SetCategories]= useState()
   const [user,setUser] = useState()
+  const [userRole,setUserRole] = useState()
   const [loading,setLoading] = useState(true)
   const auth = getAuth(app)
   const provider = new GoogleAuthProvider()
@@ -31,15 +32,18 @@ useEffect(()=>{
 const unSubscribe = ()=>{
   onAuthStateChanged(auth ,(currentUser)=>{
     setUser(currentUser) ; setLoading(false)
+    axios.get(`${HOST}/get-user-role?email=${currentUser.email}`,{ headers : {"authorization":`Bearar ${localStorage.getItem('access-token')}` }} ).then( res=>{ setUserRole(res.data)})
   })
   axios.get(`${HOST}/categories`).then(res=>{
     SetCategories(res.data)
   })
+ 
 }
 return ()=> unSubscribe()
   
   },[])
-  const  RootContextValue = {HOST,categories,user,loading,GoogleLogIN,LogIn,LogOut,Register}
+
+  const  RootContextValue = {HOST,categories,user,loading,GoogleLogIN,LogIn,LogOut,Register,userRole}
 
   return (
   <RootContext.Provider value={RootContextValue}> 

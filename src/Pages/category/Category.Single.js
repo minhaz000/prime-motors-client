@@ -1,15 +1,18 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link,  useParams } from "react-router-dom";
 import { RootContext } from "../../context/RootContext";
 import ProductCard from "../Products/ProductCard";
 import {useQuery} from '@tanstack/react-query'
 import axios from "axios";
+import BookingModal from "../Products/BookingModal";
 function CategorySingle(props) {
   const { categories,HOST } = useContext(RootContext);
+  const [productDetails , setProductDetails] = useState()
   const params = useParams()
   const ID = params.ID
   const url = `${HOST}/products/${ID}`
-  const {data:products=[], isLoading, refetch} = useQuery({
+ 
+  const {data:products=[], refetch} = useQuery({
         queryKey : ['products'],
         queryFn: ()=> axios.get(url)
   })
@@ -18,17 +21,17 @@ function CategorySingle(props) {
 
   },[ID])
   return (
-    <div> {console.log(products)}
+    <div>   {console.log(url)}
       <div className="drawer drawer-mobile">
         <input id="mobileMenu" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content grid grid-cols-3 gap-6 px-10 mt-20 h-auto min-h-screen">
          {products?.data?.map(item=>{ return (
 
-              <ProductCard key={item._id} Data={item} > </ProductCard>
+              <ProductCard key={item._id} setProductDetails={setProductDetails} Data={item} > </ProductCard>
 
          )})}
         
-         
+        <BookingModal Data={productDetails}></BookingModal>
         </div>
 
         <div className="drawer-side">

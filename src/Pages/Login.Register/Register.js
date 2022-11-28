@@ -63,9 +63,10 @@ const handleGoogleLogin = (e) => {
   <input   name='password' type="text"  className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-green-500
   "/>
-</label>
-  <button  className='btn btn-success w-full mt-10 text-white'> Login </button>
-   <p className='capitalize mt-5'> Already have an account ? <Link className='text-blue-400' to='/login'> LOGIN NOW </Link> OR Become a <Link className='text-blue-400' to="/seller"> SELLER</Link> </p>
+</label> 
+<p className=" mt-5"> Want to  become a <Link className='text-blue-400' to="/seller"> SELLER</Link> ???</p>
+  <button  className='btn btn-success w-full mt-4 text-white'> Sign UP </button>
+   <p className='capitalize mt-5'> Already have an account ? <Link className='text-blue-400' to='/login'> LOGIN NOW </Link>  </p>
   <button onClick={handleGoogleLogin} className='btn btn-error w-full mt-5 text-white'><i className="fa-brands fa-google mr-4"></i> Continue With google  </button>
 </form>
       

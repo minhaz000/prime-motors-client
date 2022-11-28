@@ -4,24 +4,23 @@ import axios from 'axios';
 import { RootContext } from '../../context/RootContext';
 function ManageProduct(props) {
   const [deleteProduct,setDeleteProduct] = useState()
-  const {HOST} = useContext(RootContext)
- 
+  const {HOST,user} = useContext(RootContext)
+ const url = `${HOST}/products?email=${user?.email}`
   const {data:products =[]  , refetch} = useQuery({
       queryKey:['products'],
-      queryFn: ()=> axios.get(`${HOST}/products`)
+      queryFn: ()=> axios.get(url, { headers : {"authorization":`Bearar ${localStorage.getItem('access-token')}` }})
   })
   const handleDelete =()=>{
 
-   const url=`${HOST}/product/${deleteProduct}`
-   console.log( url)
-    axios.delete(url).then(res=>{
+   const url=`${HOST}/product/${deleteProduct}?email=${user?.email}`
+    axios.delete(url ,{ headers : {"authorization":`Bearar ${localStorage.getItem('access-token')}` }}).then(res=>{
       refetch()
     })
     
      
   }
   return (
-    <div> 
+    <div> { console.log( products)}
       <div className="">
   <table className="table table-zebra w-full">
    
