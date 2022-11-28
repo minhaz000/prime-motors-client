@@ -8,7 +8,7 @@ function ProductCard({Data,setProductDetails}) {
  const condition = JSON.parse(Data.condition)
  const rating = []
  for(let i = 0; i <condition ; i++){ rating.push(i)}
-console.log( location.pathname)
+
   return (
     <div> 
       <div className="card card-compact  bg-base-100 shadow-xl h-[500px]">

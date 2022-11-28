@@ -11,7 +11,7 @@ function Context(props) {
   const [user,setUser] = useState()
   const [userRole,setUserRole] = useState()
   const [loading,setLoading] = useState(true)
-  const auth = getAuth(app)
+  const auth = getAuth(app) 
   const provider = new GoogleAuthProvider()
   const LogIn = (email,password)=>{
       setLoading(true) 
