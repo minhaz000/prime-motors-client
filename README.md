@@ -2,8 +2,9 @@ This is great platform from 2nd hand cars or used car . Get your dream car in fa
 
 
 
-
+-----------------------------------------------------------------
 the feature of the platform is : 
+
 ** Firebase based authentication
 
 ** 3 kind of user role based authorization( Buyer , seller , Admin)
@@ -17,7 +18,7 @@ the feature of the platform is :
 ** User Can pay in booked product (Stripe)
 
 
-
+-----------------------------------------------------------------
 
 Tecnollgy used :---
 
