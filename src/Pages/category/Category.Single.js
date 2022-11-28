@@ -22,9 +22,9 @@ function CategorySingle(props) {
   },[ID,reload])
   return (
     <div>   
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile h-auto py-20 min-h-screen">
         <input id="mobileMenu" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content grid grid-cols-3 gap-6 px-10 mt-20 h-auto min-h-screen">
+        <div className="drawer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10 ">
          {products?.data?.map(item=>{ return (
 
               <ProductCard key={item._id} setProductDetails={setProductDetails} Data={item} > </ProductCard>

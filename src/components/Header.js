@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { RootContext } from "../context/RootContext";
 
 function Header(props) {
-  const { user ,LogOut } = useContext(RootContext);
+  const { user ,LogOut,userRole } = useContext(RootContext);
   const HandleLogOut = (event)=>{
      event.preventDefault()
      LogOut().then(()=> toast.success( " Successfully Logged OUT"))
@@ -50,18 +50,22 @@ function Header(props) {
             <li>
               <Link to="/blog"> Blog </Link>
             </li>
-             <li>
-              <Link to="/dashboard"> DashBoard </Link>
-            </li>
+            {userRole?.role==='admin'|| userRole?.role=== 'seller'?
+            <li>
+            <Link to="/dashboard"> DashBoard </Link>
+          </li>
+            :"" }
+             
           </ul>
         </div>
         <div className="navbar-end">
-          {user? <Link onClick={HandleLogOut} className="btn btn-primary ">
-            Log Out
-          </Link>:
-          <Link to="/login" className="btn btn-primary ">
-          Log in
-        </Link>
+
+          {user?<> 
+            <img className=" rounded-full h-[40px] pr-2" src={user.photoURL} alt="" />
+            <span className="pr-3 mb-2"> {user.displayName}</span>
+           <Link onClick={HandleLogOut} className="btn btn-primary ">Log Out</Link> 
+           </>:
+          <Link to="/login" className="btn btn-primary "> Log in </Link>
 
           }
         </div>

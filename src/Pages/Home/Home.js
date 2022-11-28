@@ -11,8 +11,8 @@ function Home(props) {
   <div className="hero-content flex-col lg:flex-row-reverse">
     <img alt='' src={cars} className="max-w-sm rounded-lg " />
     <div>
-      <h1 className="text-5xl font-bold">Box Office News!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="text-5xl font-bold">Prime <span className='text-green-500'>Motors</span> </h1>
+      <p className="py-6">This is great platform from 2nd hand cars or used car . Get your dream car in fair price . you can find user car in fair price. <br /> aslo you can sell your car in this platfrom </p>
       <Link  to='/category/637f1ff225cc8836cc508466' className="btn btn-primary">Get Started</Link>
     </div>
   </div>
