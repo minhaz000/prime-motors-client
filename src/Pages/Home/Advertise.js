@@ -13,7 +13,7 @@ function Advertise(props) {
   }) 
   console.log(advertise)
  if (advertise.data?.length) {return ( 
-    <div className=' bg-gray-100  py-10'>  { console.log(advertise )}
+    <div className=' bg-gray-100  py-10'>  
     <h1 className='text-center uppercase text-2xl font-medium text-blue-500'> Our Hot <span className=' text-orange-500'>products</span> </h1>
       <div className=' grid grid-cols-3 gap-6 px-10 mt-20 '>
          { advertise?.data.map(item=>{return( 
