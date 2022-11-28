@@ -6,6 +6,7 @@ const RootContext = createContext()
 function Context(props) {
   // sample HOST = 'http://localhost:5000'
   const HOST = 'http://localhost:5000'
+  const [reload,SetReload]= useState(true)
   const [categories,SetCategories]= useState()
   const [user,setUser] = useState()
   const [userRole,setUserRole] = useState()
@@ -43,7 +44,7 @@ return ()=> unSubscribe()
   
   },[])
 
-  const  RootContextValue = {HOST,categories,user,loading,GoogleLogIN,LogIn,LogOut,Register,userRole}
+  const  RootContextValue = {reload,SetReload,HOST,categories,user,loading,GoogleLogIN,LogIn,LogOut,Register,userRole}
 
   return (
   <RootContext.Provider value={RootContextValue}> 

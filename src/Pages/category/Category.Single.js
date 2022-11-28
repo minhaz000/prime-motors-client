@@ -6,7 +6,7 @@ import {useQuery} from '@tanstack/react-query'
 import axios from "axios";
 import BookingModal from "../Products/BookingModal";
 function CategorySingle(props) {
-  const { categories,HOST } = useContext(RootContext);
+  const { categories,HOST, reload } = useContext(RootContext);
   const [productDetails , setProductDetails] = useState()
   const params = useParams()
   const ID = params.ID
@@ -19,9 +19,9 @@ function CategorySingle(props) {
   useEffect(()=>{
     refetch()
 
-  },[ID])
+  },[ID,reload])
   return (
-    <div>   {console.log(url)}
+    <div>   
       <div className="drawer drawer-mobile">
         <input id="mobileMenu" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content grid grid-cols-3 gap-6 px-10 mt-20 h-auto min-h-screen">

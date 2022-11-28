@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { RootContext } from '../../context/RootContext';
 
 function AddProducts(props) {
-const {user,HOST,categories} = useContext(RootContext)
+const {userRole,HOST,categories} = useContext(RootContext)
 const {register , handleSubmit , reset}  = useForm()
 const Submit =(data)=>{
  const uploadURL=`https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMG_API_KEY}`
@@ -16,7 +16,7 @@ const formData = new FormData()
 formData.append('image',photo )
 axios.post(uploadURL,formData).then(res=>{
     data.photo = res.data.data.display_url
-    const product = {...data , posted_by :{name:user.displayName,email:user.email}}
+    const product = {...data , posted_by:{...userRole}}
             axios.post(`${HOST}/product`,{product:product}).then(res=>{
               toast.success( ' product successfully added !!!')
               reset()

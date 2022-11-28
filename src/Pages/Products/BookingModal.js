@@ -3,19 +3,18 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { RootContext } from '../../context/RootContext';
 import {toast} from 'react-hot-toast'
+import { useQuery } from '@tanstack/react-query';
 function BookingModal({Data}) {
-  const  {user,HOST} = useContext(RootContext)
+  const  {user,HOST,SetReload,reload} = useContext(RootContext)
   const url = `${HOST}/booking`
   const {handleSubmit  , register , reset} = useForm()
   const Submit =(data)=>{
   const bookingData =   {...data , product_id:Data._id , product_Name:Data.product_name}    
-   
-  console.log(bookingData)
   axios.post(url ,{bookingData}).then((res)=>{
-    console.log( res)
     toast.success('Booking successfully registered !!')
-
     document.getElementById('booking-modal').checked = false;
+    reset()
+    SetReload(!reload)
   })
 
   }

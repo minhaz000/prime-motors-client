@@ -7,7 +7,7 @@ function Category(props) {
   return (
     <div className=' bg-base-200 py-10'>
           
-    <h1 className=' text-2xl font-bold text-center mb-10'>Choose your Car type </h1>
+    <h1 className=' text-2xl font-bold text-center mb-10 text-orange-500'>Choose your <span className=' text-blue-500'> Car type </span></h1>
 
 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-10'>
 

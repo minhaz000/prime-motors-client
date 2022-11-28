@@ -25,7 +25,7 @@ function ManageSeller(props) {
        refetch()
      }) }
   return (
-    <div> { console.log( sellers)}
+    <div> 
     <div className="px-5 mt-20">
   <table className="table table-zebra w-full shadow-xl">
    

@@ -3,7 +3,7 @@ import {useQuery} from '@tanstack/react-query'
 import axios from 'axios';
 import { RootContext } from '../../context/RootContext';
 function ManageProduct(props) {
-  const [deleteProduct,setDeleteProduct] = useState()
+  const [selectProduct,setSelectProduct] = useState()
   const {HOST,user} = useContext(RootContext)
  const url = `${HOST}/products?email=${user?.email}`
   const {data:products =[]  , refetch} = useQuery({
@@ -12,15 +12,22 @@ function ManageProduct(props) {
   })
   const handleDelete =()=>{
 
-   const url=`${HOST}/product/${deleteProduct}?email=${user?.email}`
+   const url=`${HOST}/product/${selectProduct}?email=${user?.email}`
     axios.delete(url ,{ headers : {"authorization":`Bearar ${localStorage.getItem('access-token')}` }}).then(res=>{
       refetch()
+    })  
+  }
+
+  const handleAdvertise =(productID)=>{
+
+    const url=`${HOST}/advertise/${productID}?email=${user?.email}`
+    axios.post(url ,{},{ headers : {"authorization":`Bearar ${localStorage.getItem('access-token')}` }}).then(res=>{
+      refetch()
     })
-    
-     
+
   }
   return (
-    <div> { console.log( products)}
+    <div> 
       <div className="">
   <table className="table table-zebra w-full">
    
@@ -42,7 +49,12 @@ function ManageProduct(props) {
             <td>{item.posted_by.name}</td>
             <td>{item.condition}</td>
             <td>{item.report?<span className='text-red-600'>YES</span>:<span className='text-green-600'>NO</span>}</td>
-            <td> <label htmlFor="DeleteModal" onClick={()=>setDeleteProduct(item._id)} className=" btn btn-xs btn-error text-white">delete</label> </td>
+            <td>{ item.advertise?<button  className=" btn btn-xs btn-info text-white mr-2" disabled>Advertise</button> : 
+          <button onClick={()=>handleAdvertise(item._id)} className=" btn btn-xs btn-info text-white mr-2">Advertise</button>
+          
+          }
+               <label htmlFor="DeleteModal" onClick={()=>setSelectProduct(item._id)} className=" btn btn-xs btn-error text-white">delete</label>
+            </td>
           </tr>
       )})}     
     </tbody>
