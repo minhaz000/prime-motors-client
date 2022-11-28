@@ -4,7 +4,8 @@ import { RootContext } from '../../context/RootContext';
 function Wellcome() {
   const {userRole} = useContext(RootContext)
   return (
-    <div> 
+    <div>   
+      
       <div className=' mt-20 flex justify-center'> 
       <h1 className=' text-center text-3xl '> Wellcome , <span className=' font-medium text-orange-500 '> {userRole?.name}</span>  </h1>
       <p className=' text-center mb-4 ml-5 text-xl'> how are you ?</p>

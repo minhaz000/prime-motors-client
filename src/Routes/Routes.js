@@ -55,6 +55,7 @@ const router = createBrowserRouter([
             path: "", 
             element: <Wellcome> </Wellcome>
           },
+          
           { 
             path: "buyers", 
             element: <ManageBuyer> </ManageBuyer> 
